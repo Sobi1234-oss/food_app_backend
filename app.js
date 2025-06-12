@@ -18,8 +18,8 @@ mongoose.connect(mongoURL)
   .catch(err => console.error("Database connection error:", err));
 
 // Test Route
-app.get("/test", (req, res) => {
-  res.json({ status: "working", message: "Server is responding" });
+app.get("/", (req, res) => {
+  res.send({ status: "working" });
 });
 
 // User Registration
@@ -107,8 +107,7 @@ app.post("/login-user", async (req, res) => {
   }
 });
 
-// Start server
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
+
+app.listen(5001, () => {
+  console.log(`Server started on port`);
 });
